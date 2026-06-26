@@ -39,11 +39,11 @@ Demonstrates a non-blocking superloop, ISR-based button input, and a three-mode 
            IO25── │ IO25           IO19│
            IO26── │ IO26           IO18│
            IO27── │ IO27            IO5│
-           IO14── │ IO14           IO17│
+           IO14── │ IO14           IO17│ ◄─── |R 220| ---- LED (GPIO 17)
            IO12── │ IO12           IO16│
            GND ── │ GND             IO4│
            IO13── │ IO13            IO0│ ◄─── BOOT button (GPIO 0)
-           IO9 ── │ IO9             IO2│ ◄─── Built-in LED (GPIO 2)
+           IO9 ── │ IO9             IO2│ 
            IO10── │ IO10           IO15│
            IO11── │ IO11            SD1│
             SD3── │ SD3             SD0│
