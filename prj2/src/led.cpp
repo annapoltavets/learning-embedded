@@ -38,8 +38,11 @@ void Led::dimmer()
 void Led::cycle()
 {
   _brightness += _brightnessStep;
-  if (_brightness > 255)
+  if (_brightness > 255){
     _brightness = 0;
+    _on = false;
+  }
+
   if (!_on)
     _on = true;
   apply();

@@ -28,7 +28,7 @@ void IRAM_ATTR handleButton()
   if (now - lastInterruptTime > DEBOUNCE_DELAY)
   {
     lastInterruptTime = now;
-    buttonFlag = true;
+    led.cycle();
   }
 }
 
@@ -46,14 +46,4 @@ void setup()
 void loop()
 {
   webServerLoop();
-
-  if (buttonFlag)
-  {
-    buttonFlag = false;
-    led.cycle();
-    Serial.print("Кнопка: яскравість = ");
-    Serial.println(map(led.getBrightness(), 0, 255, 0, 100));
-  }
-
-  delay(10); // невелика затримка для стабільності FreeRTOS
 }

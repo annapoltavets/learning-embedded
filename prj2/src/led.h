@@ -17,12 +17,11 @@ public:
 private:
   void apply();
 
-  const int _pin;
-  const int _pwmChannel;
-  const int _pwmFreq;
-  const int _pwmResolution;
-  const int _brightnessStep;
-
+  volatile int _pin;
+  volatile int _pwmChannel;
+  volatile int _pwmFreq;
+  volatile int _pwmResolution;
+  volatile int _brightnessStep;
   volatile bool _on;
   volatile int  _brightness;
 };

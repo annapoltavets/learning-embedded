@@ -12,7 +12,7 @@ static void handleRoot()
   String html = "<!DOCTYPE html><html><head>";
   html += "<meta charset='UTF-8'>";
   html += "<meta name='viewport' content='width=device-width, initial-scale=1.0'>";
-  html += "<title>Керування LED</title>";
+  html += "<title>LED Control</title>";
   html += "<style>";
   html += "body{text-align:center;font-family:sans-serif;margin-top:50px;background:#1a1a2e;color:#eee;}";
   html += "h2{color:#e94560;}";
@@ -22,12 +22,12 @@ static void handleRoot()
   html += ".bright{background:#2980b9;} .dim{background:#8e44ad;}";
   html += ".status{font-size:18px;margin:20px;}";
   html += "</style></head><body>";
-  html += "<h2>Керування LED — ESP32-S3</h2>";
-  html += "<div class='status'>Стан: <b>" + String(_led->isOn() ? "Увімкнено" : "Вимкнено") + "</b></div>";
-  html += "<div class='status'>Яскравість: <b>" + String(map(_led->getBrightness(), 0, 255, 0, 100)) + "%</b></div>";
+  html += "<h2>LED Control — ESP32-S3</h2>";
+  html += "<div class='status'>State: <b>" + String(_led->isOn() ? "On" : "Off") + "</b></div>";
+  html += "<div class='status'>Brightness: <b>" + String(map(_led->getBrightness(), 0, 255, 0, 100)) + "%</b></div>";
   html += "<br>";
-  html += "<a href='/on'  class='btn on'>Увімкнути</a>";
-  html += "<a href='/off' class='btn off'>Вимкнути</a>";
+  html += "<a href='/on'  class='btn on'>Turn On</a>";
+  html += "<a href='/off' class='btn off'>Turn Off</a>";
   html += "<br><br>";
   html += "<a href='/brighter' class='btn bright'>+</a>";
   html += "<a href='/dimmer'   class='btn dim'>&#8722;</a>";
@@ -68,9 +68,9 @@ void initWebServer(const char *ssid, const char *password, Led *led)
   _led = led;
 
   WiFi.softAP(ssid, password);
-  Serial.println("Точка доступу запущена!");
+  Serial.println("Access point started!");
   Serial.print("IP: ");
-  Serial.println(WiFi.softAPIP()); // зазвичай 192.168.4.1
+  Serial.println(WiFi.softAPIP()); // usually 192.168.4.1
 
   server.on("/",         handleRoot);
   server.on("/on",       handleOn);
@@ -78,7 +78,7 @@ void initWebServer(const char *ssid, const char *password, Led *led)
   server.on("/brighter", handleBrighter);
   server.on("/dimmer",   handleDimmer);
   server.begin();
-  Serial.println("HTTP-сервер запущено");
+  Serial.println("HTTP server started");
 }
 
 void webServerLoop()
