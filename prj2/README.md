@@ -77,6 +77,10 @@ of time the pin is HIGH within each period.
 
 At 5 kHz the flicker is invisible — the eye perceives only average brightness.
 
+## Web UI
+
+![Web UI](assets/web_ui.PNG)
+
 ## Wi-Fi Settings
 
 | Parameter | Value               |
